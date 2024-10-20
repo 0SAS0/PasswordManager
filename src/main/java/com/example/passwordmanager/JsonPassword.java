@@ -10,11 +10,12 @@ import java.io.IOException;
 public class JsonPassword {
     public static void passwd(ChoiceBox<String> acType){
         String randomPassword = PasswordGenerator.generatePassword();
-        JSONObject obj = new JSONObject();
-        obj.put("type", acType.getValue());
-        obj.put("password", randomPassword);
+        JSONObject object = new JSONObject();
+        JSONObject passwordObject = new JSONObject();
+        passwordObject.put("type", acType.getValue());
+        passwordObject.put("password", randomPassword);
         try(FileWriter file = new FileWriter("password.json", true)) {
-            file.write(obj.toJSONString() + "\n");
+            file.write(passwordObject.toJSONString() + "\n");
             file.flush();
         } catch (IOException e) {
             e.printStackTrace();
