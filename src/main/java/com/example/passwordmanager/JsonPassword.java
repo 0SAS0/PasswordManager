@@ -11,8 +11,8 @@ public class JsonPassword {
     public static void passwd(ChoiceBox<String> acType) {
         String randomPassword = PasswordGenerator.generatePassword();
         JSONObject obj = new JSONObject();
-        obj.put("Type", acType.getValue());
-        obj.put("Password", randomPassword);
+        obj.put("type", acType.getValue());
+        obj.put("password", randomPassword);
         try {
             FileWriter file = new FileWriter("Password.json");
             file.write(obj.toJSONString());
