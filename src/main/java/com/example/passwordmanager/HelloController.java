@@ -16,11 +16,7 @@ public class HelloController implements Initializable {
     protected void CpPassword() {
         String randomPassword = PasswordGenerator.generatePassword();
         System.out.println(randomPassword);
-        try (PrintWriter out = new PrintWriter("password.txt")) {
-            out.println(randomPassword);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+
 
     }
     @Override
