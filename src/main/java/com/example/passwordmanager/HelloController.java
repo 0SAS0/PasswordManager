@@ -16,7 +16,7 @@ public class HelloController implements Initializable {
     protected void CpPassword() {
         String randomPassword = PasswordGenerator.generatePassword();
         System.out.println(randomPassword);
-
+        JsonPassword.passwd(acType);
 
     }
     @Override

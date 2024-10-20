@@ -1,13 +1,14 @@
 package com.example.passwordmanager;
 
+import javafx.scene.control.ChoiceBox;
 import org.json.simple.JSONObject;
 
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class JsonPassword {
-    static String randomPassword = PasswordGenerator.generatePassword();
-    public static void passwd(String acType) {
+    public static void passwd(ChoiceBox<String> acType) {
+        String randomPassword = PasswordGenerator.generatePassword();
         JSONObject obj = new JSONObject();
         obj.put("Type", acType);
         obj.put("Password", randomPassword);
