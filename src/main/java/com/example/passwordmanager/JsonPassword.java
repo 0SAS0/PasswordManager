@@ -8,17 +8,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class JsonPassword {
-    public static void passwd(ChoiceBox<String> acType) {
+    public static void passwd(ChoiceBox<String> acType){
         String randomPassword = PasswordGenerator.generatePassword();
         JSONObject obj = new JSONObject();
         obj.put("type", acType.getValue());
         obj.put("password", randomPassword);
-        try {
-            FileWriter file = new FileWriter("Password.json");
-            file.write(obj.toJSONString());
-            file.close();
+        try(FileWriter file = new FileWriter("password.json", true)) {
+            file.write(obj.toJSONString() + "\n");
+            file.flush();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         System.out.println("Json file created");
     }
