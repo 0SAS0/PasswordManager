@@ -3,6 +3,7 @@ module com.example.passwordmanager {
     requires javafx.fxml;
     requires json.simple;
     requires java.desktop;
+    requires java.dotenv;
 
 
     opens com.example.passwordmanager to javafx.fxml;
